@@ -1,0 +1,14 @@
+﻿query GroupList($limit: Int, $offset: Int) {
+  group(limit: $limit, offset: $offset) {
+    id
+    description
+    created_at
+    name
+    updated_at
+  }
+  group_aggregate {
+    aggregate {
+      count
+    }
+  }
+}

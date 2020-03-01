@@ -1,0 +1,5 @@
+﻿query EventAttendeesQuery($event_id: uuid!) {
+  event_attendee(where: {event_id: {_eq: $event_id}}) {
+    user_id
+  }
+}

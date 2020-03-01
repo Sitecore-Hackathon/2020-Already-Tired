@@ -1,0 +1,6 @@
+﻿mutation AttendMutation($user_id:String!, $event_id:uuid!) {
+  __typename
+  insert_event_attendee(objects: {user_id: $user_id, event_id: $event_id}) {
+    affected_rows
+  }
+}

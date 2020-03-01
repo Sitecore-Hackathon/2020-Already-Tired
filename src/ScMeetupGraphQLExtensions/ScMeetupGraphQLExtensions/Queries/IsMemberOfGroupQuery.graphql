@@ -1,0 +1,7 @@
+﻿query IsMemberOfGroup($user_id: String!, $group_id: uuid!) {
+  __typename
+  group_membership(where: {group_id: {_eq: $group_id}, user_id: {_eq: $user_id}}) {
+    group_id
+    user_id
+  }
+}

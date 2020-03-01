@@ -1,0 +1,11 @@
+﻿query UpcomingEventsQuery($group_id: uuid, $date: timestamptz!) {
+  events: event(where: {group_id: {_eq: $group_id}, date: {_gte: $date}}) {
+    group_id
+    created_at
+    description
+    location
+    name
+    updated_at
+    id
+  }
+}

@@ -1,0 +1,17 @@
+id: groupdetail
+template: Group Route
+fields:
+  groupName: Awesome Group
+  groupDescription: This group meets in Boston, MA. We love Sitecore.
+placeholders:
+  jss-main:
+  - componentName: Structure-75-25
+    placeholders:
+      left:
+      - componentName: GroupDetail
+      - componentName: GroupMembers
+      - componentName: GroupUpcomingEvents
+      - componentName: GroupPastEvents
+      right:
+      - componentName: GroupJoin
+      - componentName: EventCreatePanel

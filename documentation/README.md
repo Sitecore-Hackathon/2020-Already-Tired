@@ -1,38 +1,39 @@
+
 # Documentation
-
-The documentation for this years Hackathon must be provided as a readme in Markdown format as part of your submission. 
-
-You can find a very good reference to Github flavoured markdown reference in [this cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet). If you want something a bit more WYSIWYG for editing then could use [StackEdit](https://stackedit.io/app) which provides a more user friendly interface for generating the Markdown code. Those of you who are [VS Code fans](https://code.visualstudio.com/docs/languages/markdown#_markdown-preview) can edit/preview directly in that interface too.
-
-Examples of things to include are the following.
 
 ## Summary
 
-**Category:** Hackathon Category
+**Category:** Sitecore Meetup Website
 
-What is the purpose of your module? What problem does it solve and how does it do that?
+My Hackathon submission was built with the intention of being a place where Sitecore User Groups can manage their groups and add scheduled events and meetings to the groups. Users are also able to sign up for an account and indicate that they are going to attend posted events.
 
 ## Pre-requisites
-
-Does your module rely on other Sitecore modules or frameworks?
-
-- List any dependencies
-- Or other modules that must be installed
-- Or services that must be enabled/configured
+- Sitecore JSS
+- Hasura ([https://hasura.io/](https://hasura.io/))- I used this to store user generated data. I have a publicly hosted Hasura instance I can provide the API key for testing. Just didn't want to commit that key to source control. Message me!
 
 ## Installation
 
-Provide detailed instructions on how to install the module, and include screenshots where necessary.
+There are two parts to the installation: a GraphQL extension library and the Sitecore JSS application.
 
-1. Use the Sitecore Installation wizard to install the [package](#link-to-package)
-2. ???
-3. Profit
+#### GraphQL extension library
+* Navigate to `src\ScMeetupGraphQLExtensions`, open `ScMeetupGraphQLExtensions.sln`. Built with Visual Studio 2019 and targeted .NET 4.7.2.
+* Build the solution. References are all NuGet packages so they should restore automatically from the Sitecore NuGet Repository.
+* Open the `src\ScMeetupGraphQLExtensions\ScMeetupGraphQLExtensions\bin\Debug` folder, copy `ScMeetupGraphQLExtensions.dll` to your Sitecore `bin`.
+
+#### Sitecore JSS application
+* Ensure you have Sitecore JSS (server and CLI) installed and your API key already created.
+* Navigate to `src\scmeetup`, type `npm install` in a command line.
+* Type `jss setup`, follow the steps. Add a binding for testing this locally, I was using `http://scmeetup.dev.local`. Add a host entry for this. 
+* Run `jss deploy config` after the CLI steps have completed.
+* Run `jss build`
+* Run `jss deploy app -c -d`
+* Run `jss start:connected`
+* Open your browser to `http://localhost:3000`
+* You should be presented with the homepage.
 
 ## Configuration
 
-How do you configure your module once it is installed? Are there items that need to be updated with settings, or maybe config files need to have keys updated?
-
-Remember you are using Markdown, you can provide code samples too:
+The only configuration that needs to be done is for Hasura, where user generated data is being stored. I can/will provide these two values for testing.
 
 ```xml
 <?xml version="1.0"?>
@@ -42,7 +43,8 @@ Remember you are using Markdown, you can provide code samples too:
 <configuration xmlns:patch="http://www.sitecore.net/xmlconfig/">
   <sitecore>
     <settings>
-      <setting name="MyModule.Setting" value="Hackathon" />
+      <setting name="ScMeetup.HasuraSecret" value="SECRET_HERE" />
+      <setting name="ScMeetup.HasuraEndpoint" value="ENDPOINT_HERE" />
     </settings>
   </sitecore>
 </configuration>
@@ -50,22 +52,28 @@ Remember you are using Markdown, you can provide code samples too:
 
 ## Usage
 
-Provide documentation  about your module, how do the users use your module, where are things located, what do icons mean, are there any secret shortcuts etc.
+My module provides a place for people to browse, post and join events and groups.
 
-Please include screenshots where necessary. You can add images to the `./images` folder and then link to them from your documentation:
+![Homepage](images/scmeetup-home.png?raw=true "Homepage")
 
-![Hackathon Logo](images/hackathon.png?raw=true "Hackathon Logo")
+Users are able to browse all upcoming events listed in the system:
+![Upcoming Events](images/scmeetup-upcomingevents.png?raw=true "Upcoming Events")
 
-You can embed images of different formats too:
+If you already have an account, you can login with your name and password. This feature leverages Sitecore Authentication and is performed via a GraphQL mutation.
+![Login](images/scmeetup-login.png?raw=true "Login")
 
-![Deal With It](images/deal-with-it.gif?raw=true "Deal With It")
+If you do not have an account already, you can sign up for one using the Sign Up page:
+![Sign Up](images/scmeetup-signup.png?raw=true "Sign Up")
 
-And you can embed external images too:
+Meetings can be browsed and you can indicate your interest in attending by clicking the "Attend" button in the side navigation. The attend button will indicate your joined status and gives you the opportunity to unjoin.
+![Attend](images/scmeetup-attend.png?raw=true "Attend")
 
-![Random](https://placeimg.com/480/240/any "Random")
+You can view existing groups that are already created and navigate to their detail pages. You're also able to create your own using the sidebar call out button.
+![Group Listing](images/scmeetup-grouplist.png?raw=true "Group Listing")
+
+You can view the group detail and choose to join this group and are able to create events that belong to this group. The button status changes depending on whether or not you have already joined.
+![Group Detail](images/scmeetup-groupdetail.png?raw=true "Group Detail")
 
 ## Video
 
-Please provide a video highlighing your Hackathon module submission and provide a link to the video. Either a [direct link](https://www.youtube.com/watch?v=EpNhxW4pNKk) to the video, upload it to this documentation folder or maybe upload it to Youtube...
-
-[![Sitecore Hackathon Video Embedding Alt Text](https://img.youtube.com/vi/EpNhxW4pNKk/0.jpg)](https://www.youtube.com/watch?v=EpNhxW4pNKk)
+I've recorded a small walk through of the application and have added it to YouTube [here](https://www.youtube.com/watch?v=tWYaVcPBr8g).

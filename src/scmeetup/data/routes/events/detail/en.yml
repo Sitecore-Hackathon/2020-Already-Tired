@@ -1,0 +1,17 @@
+id: eventdetail
+template: Event Route
+fields:
+  eventTitle: Event Title
+  eventDate: "2018-03-14T15:00:00Z"
+  eventDescription: <p>This is the event description here!</p>
+  eventLocation: Portland, ME
+placeholders:
+  jss-main:
+  - componentName: Structure-75-25
+    placeholders:
+      left:
+      - componentName: EventDetail
+      - componentName: EventAttendees
+      right:
+      - componentName: EventAttend
+      - componentName: EventMetadata

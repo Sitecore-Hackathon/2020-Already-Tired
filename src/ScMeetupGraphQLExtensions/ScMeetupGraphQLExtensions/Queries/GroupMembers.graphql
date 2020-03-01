@@ -1,0 +1,10 @@
+﻿query GroupMembersQuery($group_id: uuid) {
+  members: group_membership(where: {group_id: {_eq: $group_id}}) {
+    user_id
+    updated_at
+    is_organizer
+    id
+    group_id
+    created_at
+  }
+}

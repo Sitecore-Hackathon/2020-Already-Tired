@@ -1,0 +1,12 @@
+﻿mutation AddGroup($groupName: String, $description: String) {
+  insert_group(objects: {name: $groupName, description: $description}) {
+    affected_rows
+    returning {
+      created_at
+      description
+      id
+      name
+      updated_at
+    }
+  }
+}
