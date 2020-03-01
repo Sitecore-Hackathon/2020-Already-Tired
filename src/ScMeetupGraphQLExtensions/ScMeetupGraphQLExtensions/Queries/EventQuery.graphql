@@ -1,0 +1,11 @@
+﻿query EventDetailQuery($event_id: uuid!) {
+  event_by_pk(id: $event_id) {
+    date
+    description
+    created_at
+    group_id
+    id
+    location
+    name
+  }
+}

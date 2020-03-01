@@ -1,0 +1,12 @@
+﻿query PastEventsQuery($group_id: uuid, $date: timestamptz!) {
+  events: event(where: {group_id: {_eq: $group_id}, date: {_lt: $date}}) {
+    group_id
+    created_at
+    description
+    location
+    name
+    updated_at
+    id
+    date
+  }
+}

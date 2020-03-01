@@ -1,0 +1,9 @@
+id: groups
+placeholders:
+  jss-main:
+  - componentName: Structure-75-25
+    placeholders:
+      left:
+      - componentName: GroupListing
+      right:
+      - componentName: GroupCreatePanel

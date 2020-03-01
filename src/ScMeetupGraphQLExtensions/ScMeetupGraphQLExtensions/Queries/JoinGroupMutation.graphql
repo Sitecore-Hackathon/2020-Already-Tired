@@ -1,0 +1,6 @@
+﻿mutation JoinGroupMutation($user_id:String!, $group_id:uuid!) {
+  __typename
+  insert_group_membership(objects: {user_id:$user_id, group_id: $group_id, is_organizer: false}) {
+    affected_rows
+  }
+}

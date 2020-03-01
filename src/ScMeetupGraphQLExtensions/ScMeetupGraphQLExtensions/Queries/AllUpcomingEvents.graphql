@@ -1,0 +1,11 @@
+﻿query AllUpcomingEvents($date: timestamptz) {
+  events:event(order_by: {date: asc}, where: {date: {_gte: $date}}) {
+    created_at
+    date
+    description
+    group_id
+    id
+    location
+    name
+  }
+}

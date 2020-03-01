@@ -1,0 +1,14 @@
+id: signup
+fields:
+  pageTitle: Sign up!
+placeholders:
+  jss-main:
+  - componentName: Structure-50-50
+    placeholders:
+      left:
+      - componentName: ContentBlock
+        fields:
+          heading: Sign Up!
+          body: <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam enim sem, tempor at lacus eget, congue gravida nulla. Aliquam placerat diam eget est finibus efficitur. Sed nec dui volutpat, hendrerit arcu et, vulputate enim. Donec vitae rhoncus justo. In ac lorem non velit bibendum volutpat. Etiam eget dolor ut turpis congue sodales. Curabitur ut leo augue. Suspendisse potenti. Aenean accumsan volutpat magna et dapibus. Fusce sit amet aliquam libero, quis tincidunt libero. Donec felis lorem, commodo nec nisl ut, dapibus ultrices nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+      right:
+      - componentName: SignUpForm

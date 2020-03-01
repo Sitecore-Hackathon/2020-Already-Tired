@@ -1,0 +1,14 @@
+id: createevent
+fields:
+  pageTitle: Create Event
+placeholders:
+  jss-main:
+  - componentName: Structure-50-50
+    placeholders:
+      left:
+      - componentName: ContentBlock
+        fields:
+          heading: Create Event!
+          body: <p>[Rich Text Here]</p>
+      right:
+      - componentName: CreateEventForm

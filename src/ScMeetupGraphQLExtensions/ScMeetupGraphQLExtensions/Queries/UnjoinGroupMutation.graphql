@@ -1,0 +1,6 @@
+﻿mutation UnjoinGroupMutation($user_id: String!, $group_id: uuid!) {
+  __typename
+  delete_group_membership(where: {user_id: {_eq: $user_id}, group_id: {_eq: $group_id}}) {
+    affected_rows
+  }
+}

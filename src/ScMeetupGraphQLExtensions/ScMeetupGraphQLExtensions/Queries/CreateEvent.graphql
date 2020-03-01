@@ -1,0 +1,11 @@
+﻿mutation CreateEvent($date: timestamptz!, $description: String!, $location: String!, $name: String!, $group_id: uuid!) {
+  insert_event(objects: {date: $date, description: $description, location: $location, name: $name, group_id: $group_id}) {
+    returning {
+      date
+      description
+      id
+      group_id
+      location
+    }
+  }
+}

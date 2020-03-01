@@ -1,0 +1,6 @@
+﻿mutation RemoveAttendMutation($event_id: uuid!, $user_id: String!) {
+  __typename
+  delete_event_attendee(where: {event_id: {_eq: $event_id}, user_id: {_eq: $user_id}}) {
+    affected_rows
+  }
+}

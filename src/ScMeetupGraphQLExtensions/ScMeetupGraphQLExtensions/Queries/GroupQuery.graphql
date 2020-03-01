@@ -1,0 +1,9 @@
+﻿query GroupOrganizerQuery($group_id: uuid!) {
+  group_by_pk(id: $group_id) {
+    created_at
+    description
+    id
+    name
+    updated_at
+  }
+}

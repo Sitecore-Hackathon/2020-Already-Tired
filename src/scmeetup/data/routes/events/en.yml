@@ -1,0 +1,9 @@
+id: events
+fields:
+  pageTitle: Events
+placeholders:
+  jss-main:
+  - componentName: Structure-75-25
+    placeholders:
+      left:
+      - componentName: UpcomingEvents

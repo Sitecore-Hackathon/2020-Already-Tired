@@ -1,0 +1,14 @@
+id: creategroup
+fields:
+  pageTitle: Create Group!
+placeholders:
+  jss-main:
+  - componentName: Structure-50-50
+    placeholders:
+      left:
+      - componentName: ContentBlock
+        fields:
+          heading: Create Group!
+          body: <p>[Rich Text Here]</p>
+      right:
+      - componentName: CreateGroupForm

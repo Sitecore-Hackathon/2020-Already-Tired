@@ -1,0 +1,9 @@
+id: home-page
+fields:
+  pageTitle: Welcome to Sitecore JSS
+placeholders:
+  jss-main:
+  - componentName: Jumbotron
+    fields:
+      heading: Find Sitecore User Groups Near You
+      text: Find a group of people who love working with Sitecore as much as you do nearby. Join these groups for meet ups and other events and expand your knowledge of the platform.
